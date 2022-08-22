@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <record id="view_top_customer_tree_gym" model="ir.ui.view">-->
+<!--        <field name="name">view.rent.tree</field>-->
+<!--        <field name="model">top.customer.analysis</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="cod"/>-->
+<!--                <field name="res_partner_id"/>-->
+<!--                <field name="installation_id"/>-->
+<!--                <field name="start_date"/>-->
+<!--                <field name="end_date"/>-->
+<!--                <field name="total"/>-->
+<!--                <field name="status"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="view_top_customer_pivot_gym" model="ir.ui.view">
+        <field name="name">view.top.pivot</field>
+        <field name="model">top.customer.analysis</field>
+        <field name="arch" type="xml">
+            <pivot string="Top" default_order="total desc" display_quantity="true">
+                <field name="res_partner_id" type="row"/>
+                <field name="start_date" type="col"/>
+                <field name="total" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_top_customer_graph_gym" model="ir.ui.view">
+        <field name="name">view.top.graph</field>
+        <field name="model">top.customer.analysis</field>
+        <field name="arch" type="xml">
+            <graph string="Top Customer">
+                <field name="res_partner_id" type="row"/>
+                <field name="start_date" type="col"/>
+                <field name="total" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_top_customer_analysis" model="ir.actions.act_window">
+        <field name="name">Top Customer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">top.customer.analysis</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <menuitem
+            id="menu_top"
+            name="Top Customer"
+            parent="menu_gym_center"
+            action="action_top_customer_analysis"/>
+
+</odoo>

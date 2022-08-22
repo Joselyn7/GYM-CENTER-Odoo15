@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_rent_tree_gym" model="ir.ui.view">
+        <field name="name">view.rent.tree</field>
+        <field name="model">gym.center.rent</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="cod"/>
+                <field name="res_partner_id"/>
+                <field name="installation_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="total"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_rent_pivot_gym" model="ir.ui.view">
+        <field name="name">view.top.pivot</field>
+        <field name="model">gym.center.rent</field>
+        <field name="arch" type="xml">
+            <pivot string="Top" default_order="total desc">
+                <field name="res_partner_id" type="row"/>
+                <field name="start_date" type="col"/>
+                <field name="total" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_gym_center_rent" model="ir.actions.act_window">
+        <field name="name">Alquiler</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gym.center.rent</field>
+        <field name="view_mode">tree,form,graph,kanban,pivot</field>
+    </record>
+
+    <menuitem id="menu_rent"
+              name="Alquiler"
+              action="action_gym_center_rent"
+              parent="menu_gym_center"/>
+
+</odoo>

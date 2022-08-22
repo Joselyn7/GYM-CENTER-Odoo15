@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_gym_center_user,access.gym.center.user,model_gym_center_user,,1,1,1,1
+access_gym_machine,access.gym.machine,model_gym_machine,,1,1,1,1
+access_gym_center_rent,access.gym.center.rent,model_gym_center_rent,,1,1,1,1
+access_top_customer_analysis,access.top.customer.analysis,model_top_customer_analysis,,1,1,1,1
+access_top_selling_product,access.top.selling.product,model_top_selling_product,,1,1,1,1

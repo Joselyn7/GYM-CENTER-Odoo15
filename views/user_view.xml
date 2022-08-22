@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_user_tree_gym" model="ir.ui.view">
+        <field name="name">view.user.tree</field>
+        <field name="model">gym.center.user</field>
+        <field name="arch" type="xml">
+          <tree string="">
+              <field name="dni"/>
+              <field name="name"/>
+              <field name="lastname"/>
+              <field name="gender"/>
+              <field name="location"/>
+              <field name="phone_number"/>
+              <field name="email"/>
+              <field name="coupon_code"/>
+              <field name="status"/>
+          </tree>
+        </field>
+    </record>
+
+
+    <record  id="view_form_gym" model="ir.ui.view">
+      <field name="name">view.gym.form</field>
+      <field name="model">gym.center.user</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <field name="image" widget="image" class="oe_avatar"/>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                        <field name="lastname"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="dni"/>
+                        <field name="name"/>
+                        <field name="lastname"/>
+                        <field name="gender"/>
+                        <field name="location"/>
+                    </group>
+                    <group>
+                        <field name="phone_number"/>
+                        <field name="email"/>
+                        <field name="coupon_code"/>
+                        <field name="status"/>
+                    </group>
+                </group>
+            </sheet>
+        <div class="oe_chatter">
+                <field name="message_follower_ids"/>
+                <field name="activity_ids"/>
+                <field name="message_ids" />
+        </div>
+
+        </form>
+      </field>
+    </record>
+
+    <record id="action_gym_center_user" model="ir.actions.act_window">
+        <field name="name">Usuarios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gym.center.user</field>
+        <field name="view_mode">tree,form,graph,kanban,pivot</field>
+    </record>
+
+
+    <menuitem id="menu_gym_center" name="GYM CENTER"/>
+
+    <menuitem
+            id="menu_user"
+            name="Usuarios"
+            parent="menu_gym_center"
+            action="action_gym_center_user"/>
+
+</odoo>

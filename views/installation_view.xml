@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_installation_tree_gym" model="ir.ui.view">
+        <field name="name">view.installation.tree</field>
+        <field name="model">gym.center.installation</field>
+        <field name="arch" type="xml">
+          <tree>
+              <field name="cod"/>
+              <field name="name"/>
+              <field name="brand"/>
+              <field name="location"/>
+              <field name="status"/>
+              <field name="quantity"/>
+              <field name="price"/>
+          </tree>
+        </field>
+    </record>
+
+    <record id="action_gym_center_installation" model="ir.actions.act_window">
+        <field name="name">Instalación</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">gym.center.installation</field>
+        <field name="view_mode">tree,form,graph,kanban,pivot</field>
+    </record>
+
+
+    <menuitem id="menu_installation"
+              name="Instalación"
+              action="action_gym_center_installation"
+              parent="menu_gym_center"/>
+
+</odoo>

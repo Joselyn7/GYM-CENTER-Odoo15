@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--<record id="view_top_selling_tree_gym" model="ir.ui.view">
+        <field name="name">view.rent.tree</field>
+        <field name="model">top.selling.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="cod"/>
+                <field name="res_partner_id"/>
+                <field name="installation_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="total"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>-->
+
+    <record id="view_top_selling_pivot_gym" model="ir.ui.view">
+        <field name="name">view.top.pivot</field>
+        <field name="model">top.selling.product</field>
+        <field name="arch" type="xml">
+            <pivot string="Top" default_order="total desc" display_quantity="true">
+                <field name="installation_id" type="row"/>
+                <field name="start_date" type="col"/>
+                <field name="total" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_top_selling_graph_gym" model="ir.ui.view">
+        <field name="name">view.top.graph</field>
+        <field name="model">top.selling.product</field>
+        <field name="arch" type="xml">
+            <graph string="Top Selling Product">
+                <field name="installation_id" type="row"/>
+                <field name="start_date" type="col"/>
+                <field name="total" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_top_selling_product" model="ir.actions.act_window">
+        <field name="name">Top Selling Product</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">top.selling.product</field>
+        <field name="view_mode">pivot,graph</field>
+    </record>
+
+    <menuitem id="menu_top_selling"
+              name="Top Selling Product"
+              action="action_top_selling_product"
+              parent="menu_gym_center"/>
+
+</odoo>
